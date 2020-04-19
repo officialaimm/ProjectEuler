@@ -12,7 +12,9 @@ import math
 
 def isPrime(num):
     if num>2:
-        return all(num%i for i in range(2,int(math.sqrt(num))+1))
+        for i in range(2,int(math.sqrt(num))+1):
+            if num%i==0:return False
+        return True
     return num==2
 
 sumOfPrimesBelow = lambda n:sum([i*isPrime(i) for i in range(n)])
